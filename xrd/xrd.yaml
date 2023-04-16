@@ -1,0 +1,38 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: redis.tuananh.net
+spec:
+  group: tuananh.net
+  names:
+    kind: Redis
+    plural: redis
+    shortNames:
+      - "redis"
+  versions:
+    - additionalPrinterColumns:
+        - jsonPath: .spec.parameters.architecture
+          name: architecture
+          type: string
+        - jsonPath: .spec.compositionSelector.matchLabels.kind
+          name: KIND
+          type: string
+      name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                parameters:
+                  type: object
+                  properties:
+                    architecture:
+                      type: string
+                  required:
+                    - architecture
+              required:
+                - parameters

@@ -1,0 +1,12 @@
+apiVersion: tuananh.net/v1alpha1
+kind: Redis
+metadata:
+  name: my-redis-standalone
+spec:
+  compositionSelector:
+    matchLabels:
+      provider: local
+      type: dev
+      kind: keyvalue
+  parameters:
+    architecture: standalone
