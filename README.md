@@ -12,8 +12,7 @@ I'm gonna show you how in this post.
 ```bash
 kind create cluster --name demo
 ```
-
-kubernetes-sig/kind
+To install kind, [follow the instructions here](https://kind.sigs.k8s.io/docs/user/quick-start/).
 
 ## Setup crossplane
 
